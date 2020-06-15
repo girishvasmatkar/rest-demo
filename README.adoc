@@ -1,3 +1,13 @@
+It defined a simple service (searchProductsByGoodIdentificationValue) with verb POST that can be accessed via a REST URL.
 
-The files in this directory are used as templates for the ant create-component target, +
-please do not modify them without understanding the effect that it will have on that build target.
+[source, XML]
+----
+<service name="searchProductsByGoodIdentificationValue" engine="java" transaction-timeout="7200" verb="post" export="true"
+             location="org.apache.ofbiz.api.demo.RestDemoServices" invoke="searchProductsByGoodIdentificationValue" auth="true">
+       <description>Search Products by Good Identification Value</description>
+       <attribute name="idFragment" type="String"  mode="IN" optional="false"></attribute>
+       <attribute name="products" type="java.util.ArrayList" mode="OUT" optional="true"/>
+</service>
+----
+
+
