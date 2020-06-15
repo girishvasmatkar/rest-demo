@@ -1,4 +1,4 @@
-It defined a simple service (searchProductsByGoodIdentificationValue) with verb POST that can be accessed via a REST URL.
+It defines a simple service (searchProductsByGoodIdentificationValue) with verb POST that can be accessed via a REST URL.
 
 [source, XML]
 ----
@@ -9,5 +9,39 @@ It defined a simple service (searchProductsByGoodIdentificationValue) with verb 
        <attribute name="products" type="java.util.ArrayList" mode="OUT" optional="true"/>
 </service>
 ----
+
+In Order to Call this service via REST :
+[source, json]
+----
+POST https://localhost:8443/rest/services/searchProductsByGoodIdentificationValue
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJBcGFjaGVPRkJpeiIsImlhdCI6MTU0NzczOTM0OCwiZXhwIjoxNjc5Mjc1MzQ4LCJhdWQiOiJ3d3cuZXhhbXBsZS5jb20iLCJzdWIiOiJqcm9ja2V0QGV4YW1wbGUuY29tIiwiR2l2ZW5OYW1lIjoiSm9obm55IiwiU3VybmFtZSI6IlJvY2tldCIsIkVtYWlsIjoianJvY2tldEBleGFtcGxlLmNvbSIsInVzZXJMb2dpbklkIjoiYWRtaW4iLCJSb2xlIjpbIk1hbmFnZXIiLCJQcm9qZWN0IEFkbWluaXN0cmF0b3IiXX0.fwafgrgpodBJcXxNTQdZknKeWKb3sDOsQrcR2vcRw97FznD6mkE79p10Tu7cqpUx7LiXuROUAnXEgqDice-BSg
+{
+    "idFragment": "2644"
+}
+----
+
+Response +
+[source, json]
+----
+{
+  "statusCode" : 200,
+  "statusDescription" : "OK",
+  "data" : {
+    "products" : [ {
+      "internalName" : "Round Gizmo",
+      "productId" : "GZ-2644",
+      "primaryProductCategoryId" : "101",
+      "isVariant" : "N",
+      "goodIdentificationTypeId" : "INVOICE_EXPORT",
+      "idValue" : "GZ-2644-replaced",
+      "isVirtual" : "N"
+    } ]
+  }
+}
+----
+
+
+
 
 
