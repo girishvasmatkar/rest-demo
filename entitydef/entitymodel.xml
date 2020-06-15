@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of Rest-demo Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+    
+    <view-entity entity-name="ProductAndGoodIdentification"
+            package-name="org.apache.ofbiz.order.order"
+            never-cache="true"
+            title="Product And GoodIdentification View Entity">
+      <member-entity entity-alias="PR" entity-name="Product"/>
+      <member-entity entity-alias="GI" entity-name="GoodIdentification"/>
+      <alias entity-alias="PR" name="productId" field="productId"/>
+      <alias entity-alias="PR" name="internalName" field="internalName"/>
+      <alias entity-alias="PR" name="productName" field="productName"/>
+      <alias entity-alias="PR" name="brandName" field="brandName"/>
+      <alias entity-alias="PR" name="primaryProductCategoryId" field="primaryProductCategoryId"/>
+      <alias entity-alias="PR" name="isVirtual" field="isVirtual"/>
+      <alias entity-alias="PR" name="isVariant" field="isVariant"/>
+      <alias entity-alias="GI" name="idValue"/>
+      <alias entity-alias="GI" name="goodIdentificationTypeId"/>
+      <view-link entity-alias="PR" rel-entity-alias="GI">
+        <key-map field-name="productId"/>
+      </view-link>
+      <relation type="many" rel-entity-name="GoodIdentification">
+        <key-map field-name="productId"/>
+      </relation>
+  </view-entity>
+
+</entitymodel>
